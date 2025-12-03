@@ -11,7 +11,7 @@ namespace AoC25
     {
 
         public static void Print(string msg) {
-            Console.WriteLine(msg);
+            Console.WriteLine($" {msg}");
             Debug.Print(msg);
         }
 
