@@ -26,7 +26,7 @@ namespace AoC25
         static void Main(string[] args) {
             //config for each day
             string day = "03";
-            int part = 1;
+            int part = 2;
             bool useRealData = true;
             //
 

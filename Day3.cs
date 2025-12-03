@@ -49,9 +49,49 @@ namespace AoC25
 
             AocLib.Print($"Output Joltages: {outputJoltage}");
 
-        }
+        }        
 
         public static void Part2(string input) {
+            string[] banks = input.Split("\r\n");
+            ulong outputJoltage = 0;
+
+            foreach (string bank in banks) {
+                int[] joltages = Array.ConvertAll<char, int>(bank.ToCharArray(), c => (int)Char.GetNumericValue(c));
+
+                int[] jolts = new int[12];
+
+                for (int batt = 0; batt < joltages.Length; batt++) {
+                    int curJolt = joltages[batt];
+                    bool updated = false;
+
+                    for (int i = Math.Clamp( jolts.Length - ((joltages.Length) - batt), 0, jolts.Length - 1); i < jolts.Length; i++) {
+                        if (updated) {
+                            jolts[i] = 0;                            
+                        } 
+                        else if (curJolt > jolts[i]) {
+                            jolts[i] = curJolt;
+                            updated = true;                            
+                        }
+                    }                    
+                }
+
+
+                string output = "";
+
+                for (int i = 0; i < jolts.Length; i++) {
+                    output += jolts[i].ToString();
+                }
+                outputJoltage += ulong.Parse(output);       
+
+                //AocLib.Print(outputJoltage.ToString());
+            }
+
+            AocLib.Print($"Output Joltages: {outputJoltage}");
+
+        }
+
+        static void checkJolt(int[] jolts, int curJolt, int distanceFromEnd) {
+
 
 
         }
