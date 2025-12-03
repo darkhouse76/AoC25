@@ -21,7 +21,31 @@ namespace AoC25
         }
 
         public static void Part1(string input) {
+            string[] banks = input.Split("\r\n");            
 
+
+            foreach (string bank in banks) {
+                int[] joltages = Array.ConvertAll<char, int>(bank.ToCharArray(), c => (int)Char.GetNumericValue(c));
+
+                int jolt1 = 0;
+                int jolt2 = 0;
+
+                for (int i = 0; i < joltages.Length; i++) {
+                    int curJolt = joltages[i];
+
+                    if (curJolt > jolt1 && i != joltages.Length-1) {
+                        jolt1 = curJolt;
+                        jolt2 = 0;                        
+                    } 
+                    else if (curJolt > jolt2) {
+                        jolt2 = curJolt;
+                    } 
+                }
+
+                AocLib.Print(jolt1.ToString() + jolt2.ToString());
+
+
+            }
 
         }
 

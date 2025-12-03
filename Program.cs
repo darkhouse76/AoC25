@@ -21,9 +21,9 @@ namespace AoC25
 
         static void Main(string[] args) {
             //config for each day
-            string day = "02";
-            int part = 2;
-            bool useRealData = true;
+            string day = "03";
+            int part = 1;
+            bool useRealData = false;
             //
 
             //Console.WriteLine(Path.GetFullPath(@"..\..\..\inputs\"));
@@ -39,7 +39,7 @@ namespace AoC25
 
             var startTime = System.DateTime.Now;
             //Change each day
-            Day2.Run(part, GetInput(day, useRealData));
+            Day3.Run(part, GetInput(day, useRealData));
             //
 
             AocLib.Print($"\n{seperator}Took {System.DateTime.Now - startTime} to complete.\n{seperator}");
