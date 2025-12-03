@@ -16,6 +16,10 @@ namespace AoC25
                 throw new FileNotFoundException();                
             }
 
+            string input = File.ReadAllText(filePath);
+            if (input.Length < 3) {
+                throw new Exception("File Found with NO Data");
+            }
             return File.ReadAllText(filePath); 
         }
 
@@ -23,7 +27,7 @@ namespace AoC25
             //config for each day
             string day = "03";
             int part = 1;
-            bool useRealData = false;
+            bool useRealData = true;
             //
 
             //Console.WriteLine(Path.GetFullPath(@"..\..\..\inputs\"));

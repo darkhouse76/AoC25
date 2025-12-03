@@ -21,8 +21,8 @@ namespace AoC25
         }
 
         public static void Part1(string input) {
-            string[] banks = input.Split("\r\n");            
-
+            string[] banks = input.Split("\r\n");
+            int outputJoltage = 0;
 
             foreach (string bank in banks) {
                 int[] joltages = Array.ConvertAll<char, int>(bank.ToCharArray(), c => (int)Char.GetNumericValue(c));
@@ -42,10 +42,12 @@ namespace AoC25
                     } 
                 }
 
-                AocLib.Print(jolt1.ToString() + jolt2.ToString());
+                outputJoltage += (jolt1 * 10) + jolt2;
 
-
+                //AocLib.Print(outputJoltage.ToString());
             }
+
+            AocLib.Print($"Output Joltages: {outputJoltage}");
 
         }
 
